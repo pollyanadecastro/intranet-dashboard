@@ -114,7 +114,7 @@ colegas e não há um canal centralizado para postagens institucionais.
 ### 2.6 Diagrama de Classes UML
 
 ```
-┌──────────────────────────────────┐       1          *  ┌──────────────────────────────────┐
+┌──────────────────────────────────┐       1          *    ┌──────────────────────────────────┐
 │           <<class>>              │─────────────────────▶│           <<class>>              │
 │             Usuario              │                       │            Postagem              │
 ├──────────────────────────────────┤                       ├──────────────────────────────────┤
@@ -260,5 +260,3 @@ async function fetchWithTimeout(url, timeoutMs = 8000) {
 A escolha da API JSONPlaceholder como servidor simulado permitiu validar toda a arquitetura cliente-servidor e o padrão MVC sem nenhum custo de infraestrutura, reduzindo drasticamente o risco técnico e financeiro da fase inicial.
 
 ---
-
-*Documento gerado com auxílio do Claude (Anthropic) — IntraNet Dashboard v1.0*
