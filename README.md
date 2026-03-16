@@ -47,7 +47,7 @@ e seguir o padrão MVC separando claramente Model, View e Controller.
 
 **Nome do produto:** IntraNet — Dashboard de Comunicação Interna  
 **Versão:** 1.0 (MVP / Protótipo)  
-**Data:** 2025  
+**Data:** 2026
 **Equipe:** Engenharia de Software — Startup  
 
 **Problema:** Empresas em crescimento enfrentam fragmentação de comunicação interna. 
