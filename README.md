@@ -12,42 +12,31 @@ O prompt abaixo foi submetido ao Claude (Anthropic) para auxiliar no planejament
 ### Prompt completo enviado ao Claude:
 
 ```
-Contexto: Você faz parte de uma equipe de Engenharia de Software em uma startup. 
-A diretoria solicitou o desenvolvimento de um "Dashboard de Comunicação Interna" 
-para centralizar postagens, comentários e perfis de usuários da empresa.
+Você é um especialista em Engenharia de Software. Me ajude a desenvolver
+um protótipo de Dashboard de Comunicação Interna para uma startup.
 
-A equipe decidiu usar a API pública JSONPlaceholder (https://jsonplaceholder.typicode.com) 
-como backend simulado para prototipagem rápida, consumindo os endpoints:
-  - GET /users       → lista de colaboradores
-  - GET /posts       → postagens (com filtro ?userId=)
-  - GET /comments    → comentários (com filtro ?postId=)
+CONTEXTO
+A empresa precisa centralizar postagens, perfis de colaboradores e
+comentários em uma única interface web. Para validar a ideia sem custos
+de infraestrutura, utilizaremos a API pública JSONPlaceholder
+(jsonplaceholder.typicode.com) como backend simulado, consumindo:
 
-Preciso que você:
+  • GET /users
+  • GET /posts?userId={id}
+  • GET /comments?postId={id}
 
-1. ENGENHARIA DE REQUISITOS:
-   - Escreva 5 User Stories (formato: "Como [perfil], desejo [ação], para que [benefício]")
-   - Defina os requisitos não-funcionais de resiliência de rede
+REQUISITOS DO PROTÓTIPO
+Desenvolva uma interface em HTML5, CSS3 e JavaScript puro contendo:
 
-2. DIAGRAMA DE CLASSES UML:
-   - Crie as classes Usuario, Postagem e Comentario com atributos e métodos
-   - Mostre as relações de multiplicidade (1:* entre Usuario→Postagem e Postagem→Comentario)
+  • Lista de colaboradores com busca em tempo real
+  • Perfil do colaborador selecionado com suas postagens
+  • Expansão de comentários por postagem
+  • Tratamento de erros de rede com try/catch e timeout de 8s
+    usando AbortController
+  • Feedback visual de carregamento e falhas para o usuário
 
-3. ARQUITETURA MVC:
-   - Explique como organizar o código em Model, View e Controller
-   - Descreva como implementar fetchWithTimeout com AbortController para Timeout de 8s
-   - Descreva o padrão try/catch para tratamento de erros HTTP (404, 500, etc.)
-
-4. CÓDIGO DO PROTÓTIPO:
-   - Implemente em HTML5 + CSS3 + JavaScript puro (sem frameworks)
-   - Interface com sidebar de usuários, painel de postagens e expansão de comentários
-   - Skeleton loading, estados de erro, toast de notificação e indicador de status da API
-   - Use fetch() com AbortController para timeout e try/catch para tratamento de falhas
-
-5. APRESENTAÇÃO DE SLIDES (PITCH):
-   - 10 slides cobrindo: Visão do Produto, User Stories, Diagrama de Classes, 
-     Arquitetura MVC, Viabilidade e Gerenciamento de Riscos
-
-Por favor, entregue tudo de forma completa e funcional, pronto para apresentação.
+O código deve rodar diretamente no navegador, sem instalação ou build,
+e seguir o padrão MVC separando claramente Model, View e Controller.
 ```
 
 ---
