@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IntraNet — Dashboard de Comunicação Interna</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-brand">
+    <span class="dot"></span>
+    IntraNet
+  </div>
+  <nav class="topbar-nav">
+    <button class="active">Feed</button>
+    <button onclick="showToast('Em desenvolvimento', 'info')">Equipes</button>
+    <button onclick="showToast('Em desenvolvimento', 'info')">Arquivos</button>
+  </nav>
+  <div class="topbar-right">
+    <div class="api-status">
+      <span class="api-dot" id="apiDot"></span>
+      <span id="apiStatusText">Conectando...</span>
+    </div>
+  </div>
+</header>
+
+<div class="app-body">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      Colaboradores
+      <span class="user-count" id="userCount">—</span>
+    </div>
+    <div class="user-search">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" id="searchInput" placeholder="Buscar colaborador…" oninput="filterUsers()" />
+    </div>
+    <div class="user-list" id="userList">
+      <!-- Skeletons de carregamento -->
+      <div class="skel-item" id="skel1">
+        <div class="skeleton skel-avatar"></div>
+        <div class="skel-lines">
+          <div class="skeleton skel-line-a"></div>
+          <div class="skeleton skel-line-b"></div>
+        </div>
+      </div>
+      <div class="skel-item" id="skel2">
+        <div class="skeleton skel-avatar"></div>
+        <div class="skel-lines">
+          <div class="skeleton skel-line-a"></div>
+          <div class="skeleton skel-line-b"></div>
+        </div>
+      </div>
+      <div class="skel-item" id="skel3">
+        <div class="skeleton skel-avatar"></div>
+        <div class="skel-lines">
+          <div class="skeleton skel-line-a"></div>
+          <div class="skeleton skel-line-b"></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="main-content" id="mainContent">
+    <div class="empty-state" id="emptyState">
+      <svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+      <h3>Selecione um colaborador</h3>
+      <p>Escolha um membro da equipe na barra lateral para ver suas postagens e atividades.</p>
+    </div>
+    <div id="profileSection" style="display:none"></div>
+  </main>
+
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Footer -->
+<footer class="app-footer">
+  IntraNet Dashboard v1.0 · Protótipo · Dados via
+  <a href="https://jsonplaceholder.typicode.com" target="_blank" style="color:var(--accent)">JSONPlaceholder</a>
+  · Arquitetura MVC + REST
+</footer>
+
+<!-- Scripts — ordem obrigatória: Model → View → Controller -->
+<script src="js/model/api.js"></script>
+<script src="js/view/render.js"></script>
+<script src="js/controller/app.js"></script>
+
+</body>
+</html>
